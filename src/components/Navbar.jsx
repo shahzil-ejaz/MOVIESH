@@ -17,9 +17,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 glass px-6 py-4 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-2xl font-bold tracking-wider text-[var(--color-moviesh-accent)]">
-          <Film size={32} />
-          <span>MOVIESH</span>
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="bg-[var(--color-moviesh-accent)] p-2 rounded-xl shadow-[0_0_15px_rgba(58,120,86,0.5)] group-hover:scale-110 transition-transform duration-300">
+            <Film size={24} className="text-white" />
+          </div>
+          <span className="text-2xl md:text-3xl font-black tracking-tighter bg-gradient-to-r from-[var(--color-moviesh-accent)] to-emerald-400 bg-clip-text text-transparent drop-shadow-sm">
+            MOVIESH
+          </span>
         </Link>
         
         <form onSubmit={handleSearch} className="relative w-full max-w-md ml-8">
