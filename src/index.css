@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-moviesh-bg: #0a0a0a;
+  --color-moviesh-card: #1a1a1a;
+  --color-moviesh-accent: #3a7856; /* Emerald green */
+  --color-moviesh-text: #ffffff;
+  --color-moviesh-text-muted: #a3a3a3;
+}
+
+body {
+  background-color: var(--color-moviesh-bg);
+  color: var(--color-moviesh-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-moviesh-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(26, 26, 26, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
