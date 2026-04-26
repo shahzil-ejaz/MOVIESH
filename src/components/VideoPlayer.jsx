@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 
 const VideoPlayer = ({ tmdbId, type = "movie", season = 1, episode = 1 }) => {
   let embedUrl = type === "movie" 
-    ? `https://www.vidking.net/embed/movie/${tmdbId}`
-    : `https://www.vidking.net/embed/tv/${tmdbId}/${season}/${episode}`;
+    ? `https://player.videasy.net/movie/${tmdbId}`
+    : `https://player.videasy.net/tv/${tmdbId}/${season}/${episode}`;
 
-  // Emerald green color scheme matching our Neon style
-  embedUrl += "?color=3a7856&autoPlay=true&nextEpisode=true&episodeSelector=true";
+  // Deep red color scheme matching our minimalist style
+  embedUrl += "?color=F05454";
 
   useEffect(() => {
     // Walkie-Talkie Listener for "Continue Watching" progress tracking

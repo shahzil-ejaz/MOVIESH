@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-moviesh-bg: #0a0a0a;
-  --color-moviesh-card: #1a1a1a;
-  --color-moviesh-accent: #3a7856; /* Emerald green */
-  --color-moviesh-text: #ffffff;
-  --color-moviesh-text-muted: #a3a3a3;
+  --color-moviesh-bg: #222831;
+  --color-moviesh-card: #30475E;
+  --color-moviesh-accent: #F05454;
+  --color-moviesh-text: #DDDDDD;
+  --color-moviesh-text-muted: #9ca3af;
 }
 
 body {
@@ -37,8 +37,17 @@ body {
 
 /* Glassmorphism utility */
 .glass {
-  background: rgba(26, 26, 26, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(48, 71, 94, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(221, 221, 221, 0.05);
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
 }

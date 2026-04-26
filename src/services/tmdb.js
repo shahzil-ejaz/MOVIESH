@@ -47,3 +47,22 @@ export const getTvDetails = async (id) => {
   const response = await tmdbApi.get(`/tv/${id}`);
   return response.data;
 };
+
+export const getGenres = async (type = 'movie') => {
+  const response = await tmdbApi.get(`/genre/${type}/list`);
+  return response.data;
+};
+
+export const discoverMedia = async (type = 'movie', params = {}) => {
+  const response = await tmdbApi.get(`/discover/${type}`, {
+    params: {
+      ...params,
+    },
+  });
+  return response.data;
+};
+
+export const getTvSeasonDetails = async (tvId, seasonNumber) => {
+  const response = await tmdbApi.get(`/tv/${tvId}/season/${seasonNumber}`);
+  return response.data;
+};
