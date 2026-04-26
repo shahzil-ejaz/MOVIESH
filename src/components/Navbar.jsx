@@ -27,7 +27,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 glass px-6 py-4 transition-all duration-300">
+      {/* 1. UPDATED MAIN NAVBAR */}
+      <nav className="fixed top-0 w-full z-50 bg-[rgba(48,71,94,0.4)] backdrop-blur-[16px] border-b border-[rgba(221,221,221,0.05)] px-6 py-4 transition-all duration-300">
         <div className="w-full flex items-center justify-between">
           
           {/* Left Side: Mobile Menu Toggle, Logo & Links */}
@@ -86,9 +87,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Dropdown */}
+      {/* 2. UPDATED MOBILE MENU DROPDOWN */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed top-[72px] left-0 w-full z-40 glass border-t border-[rgba(255,255,255,0.1)] flex flex-col py-4 px-6 gap-2 shadow-2xl animate-fade-in">
+        <div className="md:hidden fixed top-[72px] left-0 w-full z-40 bg-[rgba(48,71,94,0.4)] backdrop-blur-[16px] border border-[rgba(221,221,221,0.05)] border-t-[rgba(255,255,255,0.1)] flex flex-col py-4 px-6 gap-2 shadow-2xl animate-fade-in">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
