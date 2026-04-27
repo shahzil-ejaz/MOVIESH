@@ -8,13 +8,8 @@ const Footer = () => {
         
         {/* Logo & Tagline */}
         <div className="flex flex-col items-center md:items-start gap-4">
-          <Link to="/" className="flex items-center gap-3">
-            <img 
-              src="/logo.png" 
-              alt="MOVIESH Logo" 
-              className="w-8 h-8 object-cover rounded-md"
-            />
-            <span className="text-xl font-bold tracking-tight text-[var(--color-moviesh-text)]">
+          <Link to="/" className="flex items-center gap-3 group">
+            <span className="text-2xl font-black tracking-tight bg-gradient-to-br from-[var(--color-moviesh-accent)] to-[#ff8400] text-transparent bg-clip-text transition-transform duration-300 group-hover:scale-105">
               MOVIESH
             </span>
           </Link>
