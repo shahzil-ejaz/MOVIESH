@@ -29,6 +29,18 @@ export const getActionMovies = async () => {
   return response.data;
 };
 
+// UPDATED: Now uses your axios instance and standardizes the params
+export const getMoviesByProvider = async (providerId) => {
+  const response = await tmdbApi.get('/discover/movie', {
+    params: {
+      with_watch_providers: providerId,
+      watch_region: 'US', // TMDB requires a region when filtering by providers
+      sort_by: 'popularity.desc',
+    },
+  });
+  return response.data;
+};
+
 export const searchMulti = async (query) => {
   const response = await tmdbApi.get('/search/multi', {
     params: {
