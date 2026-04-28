@@ -7,6 +7,7 @@ import Search from './pages/Search';
 import MovieDetails from './pages/MovieDetails';
 import ComingSoon from './pages/ComingSoon';
 import Discover from './pages/Discover';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
