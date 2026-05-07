@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 
 const VideoPlayer = ({ tmdbId, type = "movie", season = 1, episode = 1 }) => {
   let embedUrl = type === "movie" 
-    ? `https://player.videasy.net/movie/${tmdbId}`
-    : `https://player.videasy.net/tv/${tmdbId}/${season}/${episode}`;
+    ? `https://vidcore.net/movie/${tmdbId}`
+    : `https://vidcore.net/tv/${tmdbId}/${season}/${episode}`;
 
   // Deep red color scheme matching our minimalist style
-  embedUrl += "?color=F05454";
+  embedUrl += "?theme=F05454";
 
   useEffect(() => {
     // Walkie-Talkie Listener for "Continue Watching" progress tracking
