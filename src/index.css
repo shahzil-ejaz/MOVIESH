@@ -8,18 +8,57 @@
   --color-moviesh-text-muted: #9ca3af;
 }
 
-html, body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+html {
+  height: 100%;
 }
 
 body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   background-color: var(--color-moviesh-bg);
   color: var(--color-moviesh-text);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Allow iframe fullscreen to take over entire screen */
+iframe:fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 9999;
+}
+
+iframe:-webkit-full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 9999;
 }
 
 /* Custom scrollbar for webkit */

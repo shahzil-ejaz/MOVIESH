@@ -15,7 +15,11 @@
     <script>
       // Listen for when the iframe goes into fullscreen
       const handleFullscreen = () => {
-        if (document.fullscreenElement || document.webkitFullscreenElement) {
+        const isFullscreen =
+          document.fullscreenElement ||
+          document.webkitFullscreenElement ||
+          document.mozFullScreenElement;
+        if (isFullscreen) {
           // Video went fullscreen! Force phone into landscape
           if (screen.orientation && screen.orientation.lock) {
             screen.orientation.lock("landscape").catch((err) => {
@@ -32,6 +36,8 @@
 
       document.addEventListener("fullscreenchange", handleFullscreen);
       document.addEventListener("webkitfullscreenchange", handleFullscreen);
+      document.addEventListener("mozfullscreenchange", handleFullscreen);
+      document.addEventListener("msfullscreenchange", handleFullscreen);
     </script>
   </body>
 </html>
