@@ -26,7 +26,7 @@ function App() {
       if (document.fullscreenElement || document.webkitFullscreenElement) {
         // 1. Force phone into landscape
         if (screen.orientation && screen.orientation.lock) {
-          screen.orientation.lock("landscape").catch((err) => console.log(err))``;
+          screen.orientation.lock("landscape").catch((err) => console.log(err));
         }
         
         // 2. Kill the status bar natively!
