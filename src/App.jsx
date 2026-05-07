@@ -8,6 +8,7 @@ import MovieDetails from './pages/MovieDetails';
 import ComingSoon from './pages/ComingSoon';
 import Discover from './pages/Discover';
 import { Analytics } from "@vercel/analytics/react"
+import { StatusBar } from '@capacitor/status-bar';
 
 function App() {
   useEffect(() => {
@@ -19,7 +20,43 @@ function App() {
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, []);
+// Listen for when the iframe goes into fullscreen
+  useEffect(() => {
+    const handleFullscreen = async () => {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        // 1. Force phone into landscape
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock("landscape").catch((err) => console.log(err))``;
+        }
+        
+        // 2. Kill the status bar natively!
+        try {
+          await StatusBar.hide();
+        } catch (err) {
+          console.log("Not running in native app, skipping status bar hide");
+        }
+        
+      } else {
+        // Exited fullscreen! Unlock rotation and bring status bar back
+        if (screen.orientation && screen.orientation.unlock) {
+          screen.orientation.unlock();
+        }
+        try {
+          await StatusBar.show();
+        } catch (err) {}
+      }
+    };
 
+    // Attach listeners
+    document.addEventListener("fullscreenchange", handleFullscreen);
+    document.addEventListener("webkitfullscreenchange", handleFullscreen);
+
+    // Cleanup function so React doesn't duplicate them
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreen);
+      document.removeEventListener("webkitfullscreenchange", handleFullscreen);
+    };
+  }, []); // <--- The empty brackets mean this only runs ONCE.
   return (
     <div className="app-container min-h-screen text-white">
       <Navbar />
