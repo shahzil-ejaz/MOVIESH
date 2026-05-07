@@ -41,6 +41,7 @@ const VideoPlayer = ({ tmdbId, type = "movie", season = 1, episode = 1 }) => {
         className="w-full h-full"
         frameBorder="0"
         allowFullScreen
+        allowFullScreen={true} 
       ></iframe>
     </div>
   );
