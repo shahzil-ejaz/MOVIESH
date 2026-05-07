@@ -33,7 +33,7 @@ const VideoPlayer = ({ tmdbId, type = "movie", season = 1, episode = 1 }) => {
   }, []);
 
   return (
-    <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-[rgba(255,255,255,0.1)]">
+    <div className="w-screen h-screen md:w-full md:aspect-video md:rounded-xl bg-black overflow-hidden shadow-2xl md:border md:border-[rgba(255,255,255,0.1)]">
       <iframe
         src={embedUrl}
         width="100%"
@@ -41,7 +41,7 @@ const VideoPlayer = ({ tmdbId, type = "movie", season = 1, episode = 1 }) => {
         className="w-full h-full"
         frameBorder="0"
         allowFullScreen
-        allowFullScreen={true} 
+        allow="fullscreen; autoplay"
       ></iframe>
     </div>
   );
