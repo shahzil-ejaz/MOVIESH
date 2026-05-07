@@ -9,5 +9,26 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Listen for when the iframe goes into fullscreen
+      const handleFullscreen = () => {
+        if (document.fullscreenElement || document.webkitFullscreenElement) {
+          // Video went fullscreen! Force phone into landscape
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock("landscape").catch((err) => {
+              console.log("Couldn't auto-rotate: ", err);
+            });
+          }
+        } else {
+          // Exited fullscreen! Unlock the rotation
+          if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+          }
+        }
+      };
+
+      document.addEventListener("fullscreenchange", handleFullscreen);
+      document.addEventListener("webkitfullscreenchange", handleFullscreen);
+    </script>
   </body>
 </html>
