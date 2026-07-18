@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-moviesh-bg: #222831;
-  --color-moviesh-card: #30475E;
-  --color-moviesh-accent: #F05454;
-  --color-moviesh-text: #DDDDDD;
-  --color-moviesh-text-muted: #9ca3af;
+  --color-moviesh-bg: #09090b;
+  --color-moviesh-card: #18181b;
+  --color-moviesh-accent: #E50914;
+  --color-moviesh-text: #FAFAFA;
+  --color-moviesh-text-muted: #A1A1AA;
 }
 
 html {
@@ -19,7 +20,8 @@ body {
   padding: 0;
   background-color: var(--color-moviesh-bg);
   color: var(--color-moviesh-text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -42,24 +44,6 @@ main {
   flex: 1;
 }
 
-/* Allow iframe fullscreen to take over entire screen */
-iframe:fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 9999;
-}
-
-iframe:-webkit-full-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 9999;
-}
 
 /* Custom scrollbar for webkit */
 ::-webkit-scrollbar {
@@ -72,22 +56,29 @@ iframe:-webkit-full-screen {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #3f3f46;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #52525b;
 }
 
 /* Glassmorphism utility */
 .glass {
-  background: rgba(48, 71, 94, 0.4);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  -moz-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(24, 24, 27, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  -moz-backdrop-filter: blur(20px) saturate(180%);
   will-change: backdrop-filter;
-  border: 1px solid rgba(221, 221, 221, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Physical button scale on press */
+.active-scale:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
 }
 
 @keyframes slow-zoom {
@@ -97,4 +88,19 @@ iframe:-webkit-full-screen {
 
 .animate-slow-zoom {
   animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }

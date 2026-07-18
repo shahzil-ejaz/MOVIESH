@@ -42,23 +42,23 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-moviesh-bg)] via-[var(--color-moviesh-bg)]/40 to-transparent"></div>
       
       <div className="relative z-10 max-w-2xl w-full">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg text-white">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg text-white tracking-tighter leading-none">
           {movie.title || movie.name || movie.original_name}
         </h1>
-        <p className="text-lg md:text-xl text-[var(--color-moviesh-text)] mb-8 drop-shadow-md font-light">
+        <p className="text-lg md:text-xl text-[var(--color-moviesh-text)] mb-8 drop-shadow-md font-light max-w-[65ch]">
           {truncate(movie.overview, 150)}
         </p>
         <div className="flex gap-4">
           <button 
             onClick={() => navigate(`/${movie.media_type || 'movie'}/${movie.id}`)}
-            className="flex items-center gap-2 bg-[var(--color-moviesh-accent)] hover:bg-[#d94b4b] text-white px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 shadow-xl shadow-[rgba(240,84,84,0.2)]"
+            className="active-scale flex items-center gap-2 bg-[var(--color-moviesh-accent)] hover:bg-[#c40812] text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 hover:scale-[1.02] shadow-xl shadow-[#e5091440]"
           >
             <Play fill="currentColor" size={20} />
             Play
           </button>
           <button 
             onClick={() => navigate(`/list`)}
-            className="flex items-center gap-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white px-8 py-3 rounded-full font-semibold backdrop-blur-md transition-all hover:scale-105"
+            className="active-scale flex items-center gap-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white px-8 py-3 rounded-full font-semibold backdrop-blur-md transition-all duration-200 hover:scale-[1.02]"
           >
             <Plus size={20} />
             Add to List

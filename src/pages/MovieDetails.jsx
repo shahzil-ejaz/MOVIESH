@@ -103,14 +103,14 @@ const MovieDetails = () => {
               <div className="relative" ref={dropdownRef}>
                 <div 
                   onClick={() => setIsSeasonDropdownOpen(!isSeasonDropdownOpen)}
-                  className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-white text-base font-medium rounded-xl flex items-center justify-between py-3 px-6 shadow-lg cursor-pointer backdrop-blur-md hover:bg-[rgba(255,255,255,0.1)] transition-colors min-w-[200px]"
+                  className="active-scale bg-white/5 border border-white/10 text-white text-base font-medium rounded-xl flex items-center justify-between py-3 px-6 shadow-lg cursor-pointer backdrop-blur-md hover:bg-white/10 transition-colors min-w-[200px]"
                 >
                   <span>Season {selectedSeason}</span>
                   <ChevronDown size={18} className={`ml-3 transition-transform duration-300 ${isSeasonDropdownOpen ? 'rotate-180' : ''}`} />
                 </div>
 
                 {isSeasonDropdownOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-full min-w-[200px] bg-[#222831] border border-[rgba(255,255,255,0.1)] rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto custom-scrollbar">
+                  <div className="absolute top-full right-0 mt-2 w-full min-w-[200px] bg-[#18181b]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto custom-scrollbar animate-fade-up origin-top-right">
                     {movie.seasons.filter(s => s.season_number > 0).map(season => (
                       <div 
                         key={season.id}
@@ -137,7 +137,7 @@ const MovieDetails = () => {
                     setSelectedEpisode(ep.episode_number);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className={`group relative rounded-xl overflow-hidden cursor-pointer border transition-all duration-300 ${selectedEpisode === ep.episode_number ? 'border-[var(--color-moviesh-accent)] ring-2 ring-[var(--color-moviesh-accent)] ring-opacity-50' : 'border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)]'}`}
+                  className={`active-scale group relative rounded-xl overflow-hidden cursor-pointer border transition-all duration-300 hover:scale-[1.02] ${selectedEpisode === ep.episode_number ? 'border-[var(--color-moviesh-accent)] ring-2 ring-[var(--color-moviesh-accent)] ring-opacity-50' : 'border-white/10 hover:border-white/30'}`}
                 >
                   {/* Thumbnail */}
                   <div className="aspect-video relative overflow-hidden bg-[#1a1f26]">
@@ -192,20 +192,20 @@ const MovieDetails = () => {
           </div>
           
           <div className="w-full md:w-2/3">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{movie.title || movie.name}</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tighter leading-none">{movie.title || movie.name}</h1>
             
-            <div className="flex flex-wrap items-center gap-6 mb-6 text-[var(--color-moviesh-text-muted)]">
-              <span className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-4 mb-8 text-[var(--color-moviesh-text-muted)]">
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-md">
                 <Star size={18} className="text-yellow-500" fill="currentColor" />
-                {movie.vote_average?.toFixed(1)} Rating
+                <span className="font-semibold text-white">{movie.vote_average?.toFixed(1)}</span> <span className="text-xs">/ 10</span>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-md">
                 <Calendar size={18} className="text-[var(--color-moviesh-accent)]" />
-                {(movie.release_date || movie.first_air_date)?.split('-')[0]}
+                <span className="font-semibold text-white">{(movie.release_date || movie.first_air_date)?.split('-')[0]}</span>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-md">
                 <Clock size={18} className="text-[var(--color-moviesh-accent)]" />
-                {movie.runtime || (movie.episode_run_time && movie.episode_run_time[0])} min
+                <span className="font-semibold text-white">{movie.runtime || (movie.episode_run_time && movie.episode_run_time[0])} min</span>
               </span>
             </div>
             

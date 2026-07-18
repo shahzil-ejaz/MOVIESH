@@ -10,18 +10,19 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div 
-      className="relative min-w-[160px] md:min-w-[200px] h-[240px] md:h-[300px] rounded-xl overflow-hidden cursor-pointer group shrink-0 shadow-lg transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-[rgba(0,0,0,0.5)]"
+      className="active-scale relative min-w-[160px] md:min-w-[200px] h-[240px] md:h-[300px] rounded-xl overflow-hidden cursor-pointer group shrink-0 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:z-10 hover:shadow-2xl hover:shadow-black/50 animate-fade-up"
+      style={{ animationFillMode: 'both', animationDelay: `${Math.random() * 0.2}s` }}
       onClick={() => navigate(`/${movie.media_type || 'movie'}/${movie.id}`)}
     >
       <img 
         src={`${POSTER_BASE_URL}${movie.poster_path}`} 
         alt={movie.title || movie.name}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
         loading="lazy"
       />
       
       {/* Hover Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-moviesh-bg)] via-[var(--color-moviesh-bg)]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+      <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
         <h3 className="text-white font-bold text-sm md:text-base line-clamp-2 mb-3 drop-shadow-md">
           {movie.title || movie.name}
         </h3>

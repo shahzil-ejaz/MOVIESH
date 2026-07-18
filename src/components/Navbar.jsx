@@ -98,7 +98,7 @@ const Navbar = () => {
   return (
     <>
       {/* 1. UPDATED MAIN NAVBAR */}
-      <nav className="fixed top-0 w-full z-50 bg-[rgba(48,71,94,0.4)] backdrop-blur-[16px] border-b border-[rgba(221,221,221,0.05)] px-6 py-4 transition-all duration-300">
+      <nav className="fixed top-0 w-full z-50 bg-[#09090b]/40 backdrop-blur-xl border-b border-white/5 px-6 py-4 transition-all duration-300">
         <div className="w-full flex items-center justify-between">
           
           {/* Left Side: Mobile Menu Toggle, Logo & Links */}
@@ -133,7 +133,7 @@ const Navbar = () => {
           {/* Right Side: Search & Profile */}
           <div className="flex items-center gap-6">
             <form onSubmit={handleSearch} className="relative flex items-center">
-              <div className={`flex items-center transition-all duration-300 ${isSearchExpanded ? 'w-48 md:w-64 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-full px-4 py-2' : 'w-10 h-10 rounded-full justify-center hover:bg-[rgba(255,255,255,0.1)] cursor-pointer'}`}
+              <div className={`flex items-center transition-all duration-300 ease-out ${isSearchExpanded ? 'w-48 md:w-64 bg-white/5 border border-white/10 rounded-full px-4 py-2' : 'w-10 h-10 rounded-full justify-center hover:bg-white/10 cursor-pointer'}`}
                    onClick={() => !isSearchExpanded && setIsSearchExpanded(true)}>
                 <Search className={`text-[var(--color-moviesh-text-muted)] flex-shrink-0 ${isSearchExpanded ? 'mr-2' : ''}`} size={20} />
                 {isSearchExpanded && (
@@ -152,7 +152,7 @@ const Navbar = () => {
               {/* Suggestions Dropdown (FIXED EVENT BUBBLING) */}
               {isSearchExpanded && showSuggestions && (
                 <div 
-                  className="absolute top-full mt-2 w-48 md:w-64 bg-[rgba(48,71,94,0.95)] backdrop-blur-[16px] border border-[rgba(255,255,255,0.1)] rounded-lg shadow-2xl overflow-hidden z-50"
+                  className="absolute top-full mt-2 w-48 md:w-64 bg-[#18181b]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 animate-fade-up"
                   onMouseDown={(e) => e.preventDefault()} // <-- THIS PREVENTS THE ONBLUR BUG
                 >
                   {isLoadingSuggestions ? (
@@ -195,7 +195,7 @@ const Navbar = () => {
               )}
             </form>
 
-            <Link to="/profile" className="w-9 h-9 rounded-full overflow-hidden border border-[rgba(255,255,255,0.1)] hover:border-[var(--color-moviesh-accent)] transition-colors bg-[var(--color-moviesh-card)] flex items-center justify-center">
+            <Link to="/profile" className="active-scale w-9 h-9 rounded-full overflow-hidden border border-white/10 hover:border-[var(--color-moviesh-accent)] transition-colors bg-[var(--color-moviesh-card)] flex items-center justify-center">
               <User size={18} className="text-[var(--color-moviesh-text-muted)]" />
             </Link>
           </div>
@@ -204,7 +204,7 @@ const Navbar = () => {
 
       {/* 2. UPDATED MOBILE MENU DROPDOWN */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed top-[72px] left-0 w-full z-40 bg-[rgba(48,71,94,0.4)] backdrop-blur-[16px] border border-[rgba(221,221,221,0.05)] border-t-[rgba(255,255,255,0.1)] flex flex-col py-4 px-6 gap-2 shadow-2xl animate-fade-in">
+        <div className="md:hidden fixed top-[72px] left-0 w-full z-40 bg-[#09090b]/80 backdrop-blur-2xl border-b border-white/5 flex flex-col py-4 px-6 gap-2 shadow-2xl animate-fade-up">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
