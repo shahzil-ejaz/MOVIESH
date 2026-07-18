@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div 
       className="active-scale relative min-w-[160px] md:min-w-[200px] h-[240px] md:h-[300px] rounded-xl overflow-hidden cursor-pointer group shrink-0 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:z-10 hover:shadow-2xl hover:shadow-black/50 animate-fade-up"
-      style={{ animationFillMode: 'both', animationDelay: `${Math.random() * 0.2}s` }}
+      style={{ animationFillMode: 'both', animationDelay: `${(movie.id % 10) * 0.05}s` }}
       onClick={() => navigate(`/${movie.media_type || 'movie'}/${movie.id}`)}
     >
       <img 
