@@ -25,16 +25,6 @@ const providers = [
     name: "Vidsrc",
     getMovieUrl: (id) => `https://vidsrc.sbs/embed/movie/${id}`,
     getTvUrl: (id, s, e) => `https://vidsrc.sbs/embed/tv/${id}/${s}/${e}`
-  },
-  {
-    name: "flixcdn",
-    getMovieUrl: (id) => `https://flixcdn.cyou/movie/${id}`,
-    getTvUrl: (id, s, e) => `https://flixcdn.cyou/tv/${id}/${s}/${e}`
-  },
-  {
-    name: "CloudOrchestraNova",
-    getMovieUrl: (id) => `https://cloudorchestranova.com/embed/movie/${id}`,
-    getTvUrl: (id, s, e) => `https://cloudorchestranova.com/embed/tv/${id}/${s}/${e}`
   }
 ];
 
