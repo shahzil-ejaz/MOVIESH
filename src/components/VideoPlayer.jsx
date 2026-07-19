@@ -25,6 +25,21 @@ const providers = [
     name: "MultiEmbed",
     getMovieUrl: (id) => `https://multiembed.mov/?video_id=${id}&tmdb=1`,
     getTvUrl: (id, s, e) => `https://multiembed.mov/?video_id=${id}&tmdb=1&s=${s}&e=${e}`
+  },
+  {
+    name: "VexFlix",
+    getMovieUrl: (id) => `https://vexflix.com/embed/movie/${id}`,
+    getTvUrl: (id, s, e) => `https://vexflix.com/embed/tv/${id}/${s}/${e}`
+  },
+  {
+    name: "VidMoo",
+    getMovieUrl: (id) => `https://vidmoo.to/embed/movie/${id}`,
+    getTvUrl: (id, s, e) => `https://vidmoo.to/embed/tv/${id}/${s}/${e}`
+  },
+  {
+    name: "Netfilm",
+    getMovieUrl: (id) => `https://netfilm.world/embed/movie/${id}`,
+    getTvUrl: (id, s, e) => `https://netfilm.world/embed/tv/${id}/${s}/${e}`
   }
 ];
 
