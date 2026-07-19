@@ -23,8 +23,8 @@ const providers = [
   },
   {
     name: "Vidsrc",
-    getMovieUrl: (id) => `https://vidsrc.sbs${id}&tmdb=1`,
-    getTvUrl: (id, s, e) => `https://vidsrc.sbs=${id}&tmdb=1&s=${s}&e=${e}`
+    getMovieUrl: (id) => `https://vidsrc.sbs/embed/movie/${id}`,
+    getTvUrl: (id, s, e) => `https://vidsrc.sbs/embed/tv/${id}/${s}/${e}`
   },
   {
     name: "flixcdn",
