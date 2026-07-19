@@ -22,28 +22,27 @@ function App() {
   }, []);
 // Listen for when the iframe goes into fullscreen
   useEffect(() => {
+    // Hide status bar immediately on mount so app looks like a game
+    const hideStatusBar = async () => {
+      try {
+        await StatusBar.hide();
+      } catch (err) {
+        // Not running in native app
+      }
+    };
+    hideStatusBar();
+
     const handleFullscreen = async () => {
       if (document.fullscreenElement || document.webkitFullscreenElement) {
         // 1. Force phone into landscape
         if (screen.orientation && screen.orientation.lock) {
           screen.orientation.lock("landscape").catch((err) => console.log(err));
         }
-        
-        // 2. Kill the status bar natively!
-        try {
-          await StatusBar.hide();
-        } catch (err) {
-          console.log("Not running in native app, skipping status bar hide");
-        }
-        
       } else {
-        // Exited fullscreen! Unlock rotation and bring status bar back
+        // Exited fullscreen! Unlock rotation
         if (screen.orientation && screen.orientation.unlock) {
           screen.orientation.unlock();
         }
-        try {
-          await StatusBar.show();
-        } catch (err) {}
       }
     };
 
