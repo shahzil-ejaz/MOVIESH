@@ -22,24 +22,19 @@ const providers = [
     getTvUrl: (id, s, e) => `https://vidfast.vc/tv/${id}/${s}/${e}`
   },
   {
-    name: "MultiEmbed",
-    getMovieUrl: (id) => `https://multiembed.mov/?video_id=${id}&tmdb=1`,
-    getTvUrl: (id, s, e) => `https://multiembed.mov/?video_id=${id}&tmdb=1&s=${s}&e=${e}`
+    name: "Vidsrc",
+    getMovieUrl: (id) => `https://vidsrc.sbs${id}&tmdb=1`,
+    getTvUrl: (id, s, e) => `https://vidsrc.sbs=${id}&tmdb=1&s=${s}&e=${e}`
   },
   {
-    name: "VexFlix",
-    getMovieUrl: (id) => `https://vexflix.com/embed/movie/${id}`,
-    getTvUrl: (id, s, e) => `https://vexflix.com/embed/tv/${id}/${s}/${e}`
+    name: "flixcdn",
+    getMovieUrl: (id) => `https://flixcdn.cyou/movie/${id}`,
+    getTvUrl: (id, s, e) => `https://flixcdn.cyou/tv/${id}/${s}/${e}`
   },
   {
-    name: "VidMoo",
-    getMovieUrl: (id) => `https://vidmoo.to/embed/movie/${id}`,
-    getTvUrl: (id, s, e) => `https://vidmoo.to/embed/tv/${id}/${s}/${e}`
-  },
-  {
-    name: "Netfilm",
-    getMovieUrl: (id) => `https://netfilm.world/embed/movie/${id}`,
-    getTvUrl: (id, s, e) => `https://netfilm.world/embed/tv/${id}/${s}/${e}`
+    name: "CloudOrchestraNova",
+    getMovieUrl: (id) => `https://cloudorchestranova.com/embed/movie/${id}`,
+    getTvUrl: (id, s, e) => `https://cloudorchestranova.com/embed/tv/${id}/${s}/${e}`
   }
 ];
 
