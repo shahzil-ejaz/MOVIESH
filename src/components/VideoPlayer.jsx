@@ -8,9 +8,9 @@ const providers = [
     getTvUrl: (id, s, e) => `https://vidcore.net/tv/${id}/${s}/${e}?theme=F05454`
   },
   {
-    name: "Vidlove",
-    getMovieUrl: (id) => `https://player.vidlove.cc/movie/${id}`,
-    getTvUrl: (id, s, e) => `https://player.vidlove.cc/tv/${id}/${s}/${e}`
+    name: "Videasy",
+    getMovieUrl: (id) => `https://player.videasy.to/movie/${id}`,
+    getTvUrl: (id, s, e) => `https://player.videasy.to/tv/${id}/${s}/${e}`
   }, {
     name: "Peachify",
     getMovieUrl: (id) => `https://peachify.top/embed/movie/${id}`,
